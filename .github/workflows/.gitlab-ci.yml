@@ -1,0 +1,22 @@
+stages:
+  - build
+  - test
+
+image: python:3.10
+
+before_script:
+  - python --version
+  - pip install --upgrade pip
+  - pip install flask
+
+build:
+  stage: build
+  script:
+    - echo "Building project..."
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - python -m py_compile app.py
+    
